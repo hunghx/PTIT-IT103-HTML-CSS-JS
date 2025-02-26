@@ -6,6 +6,102 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!--  Table : là bảng trong HTML -->
+     <table border="10" cellpadding="20" cellspacing="0" style="display: none;">
+        <!-- thẻ tiêu đề  -->
+        <caption align="bottom">Đây là danh sách sinh viên</caption>
+        <!-- định nghia khu vục bảng -->
+         <thead>
+            <!-- Tiêu đề cột -->
+             <tr>
+                <!-- Thẻ đại diện cho 1 hàng -->
+                <th>STT</th>
+                <th>Họ Tên</th>
+                <th>Ngày sinh</th>
+                <th>Số điện thoại</th>
+                <th>Giới tính</th>
+             </tr>
+         </thead>
+         <tbody>
+            <!-- định nghĩa nội dung trong bảng -->
+             <!-- <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+                <td>11/12/2005</td>
+                <td>0984386463</td>
+                <td>Nam</td>
+             </tr>
+             <tr>
+                <td>2</td>
+                <td>Nguyễn Văn B</td>
+                <td>11/12/2005</td>
+                <td>0984386463</td>
+                <td>Nam</td>
+             </tr>
+             <tr>
+                <td>3</td>
+                <td>Nguyễn Văn B</td>
+                <td>11/12/2005</td>
+                <td>0984386463</td>
+                <td>Nam</td>
+             </tr>
+         </tbody>
+         <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+             </tr>
+         </tfoot> -->
+        
+     </table>
+      <!--  Table : là bảng trong HTML -->
+      <table border="2" cellpadding="20" cellspacing="10"   >
+        <!-- thẻ tiêu đề  -->
+        <caption align="bottom">Đây là danh sách sản phẩm</caption>
+        <!-- định nghia khu vục bảng -->
+         <thead>
+            <!-- Tiêu đề cột -->
+             <tr>
+                    <!-- Thẻ đại diện cho 1 hàng -->
+                    <th>STT</th>
+                <th>Tên SP</th>
+                <th>Ảnh</th>
+                <th>Giá bán</th>
+                <th>Số lượng</th>
+             </tr>
+         </thead>
+         <tbody>
+            <!-- định nghĩa nội dung trong bảng -->
+             <tr>
+                <!-- <td>1</td> -->
+                <td colspan="2" style="background-color: MediumSeaGreen; color: whitesmoke;">Áo </td>
+                <td>ảnh 1</td>
+                <td rowspan="3" bgcolor="red"><b>100 $</b></td>
+                <td rowspan="2">10</td>
+             </tr>
+             <tr>
+                <td>2</td>
+                <td>Quần </td>
+                <td style="background-color: yellow;"><img src="../session01/img/baby.webp" alt="" width="200" height="200" style="object-fit: cover;"></td>
+                <!-- <td>100 $</td> -->
+                <!-- <td>10</td> -->
+             </tr>
+             <tr>
+                <td>3</td>
+                <td>Trang sức </td>
+                <td><video controls autoplay>
+                    <source src="../session01/audio/SampleVideo_360x240_1mb.mp4">
+                </video></td>
+                <!-- <td>100 $</td> -->
+                <td><button>Add</button></td>
+             </tr>
+             
+         </tfoot>
+        
+     </table>
+
 </body>
 </html>
