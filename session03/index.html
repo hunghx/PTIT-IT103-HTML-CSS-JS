@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <!--  cấu trúc của 1 thẻ form cơ bản -->
+    <form action="https://www.google.com" method="post" enctype="multipart/form-data">
+        <label for="name">Nhập name</label>
+        <input type="text" name="fullname" placeholder="Nhập tên của bạn " id="name">
+        <input type="file" name="file" id="">
+        <input type="text" name="phone">
+        <!-- <button type="submit">Gửi</button> -->
+        <!-- <input type="submit" value="Gửi" name="action"> -->
+        <!--  thẻ select option -->
+        <select name="city" id="" multiple>
+            <option>----No Selected----</option>
+            <option value="HN">Hà Nội</option>
+            <option value="HCM">Hồ Chí Minh</option>
+            <option value="VI">Vinh</option>
+            <option value="HP">Hải Phòng</option>
+            <option value="DN">Đà Nẵng</option>
+        </select>
+        <!-- Thẻ textarea -->
+         <textarea name="" id="" cols="200" rows="10" >...</textarea>
+
+        <!-- input -->
+         <input type="text" name="" id="">
+         <input type="password" name="" id="">
+         <input type="email" name="" id="">
+
+         <input type="number" name="" id="">
+         <input type="range" name="" id="">
+         <input type="time" name="" id="">
+
+         <input type="reset" value="Add"/>
+
+         <!--  Multi select -->
+        <input type="radio" name="gender" id="" checked>
+        <input type="radio" name="gender" id="">
+        <input type="radio" name="gender" id="">
+        <input type="radio" name="gender" id="">
+        <input type="radio" name="gender" id="">
+
+        <input type="checkbox" name="subject" id="">
+        <input type="checkbox" name="subject" id="">
+        <input type="checkbox" name="subject" id="" checked>
+        <input type="checkbox" name="subject" id="">
+    </form>
+</body>
+
+</html>
