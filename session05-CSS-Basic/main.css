@@ -1,0 +1,92 @@
+h3{
+    color: brown;
+    background-color: black;
+}
+/* Bộ chọn tất cả */
+*{
+    /* reset css */
+    margin: 0;
+    padding: 0;
+}
+
+/* Tagname */
+button{
+   
+}
+/* ID, class */
+.parent{
+    width: 500px;
+    height: 300px;
+    background-color: aqua;
+    /* font-size: 10px; */
+}
+#box{
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    /* line-height: 100px; */
+    background-color: burlywood;
+        /* padding: 30px 60px 100px 150px;
+        margin: 30px;
+        border: 2px dotted black; */
+    font-size: 10em;
+}
+.li-item{
+    list-style: none;
+    color: brown;
+}
+/* Quan hệ giữa các selector : >, + , " ", "" */
+/* selector1 + selector2 */
+ul .li-item{
+    color: black;
+}
+button + button{
+    background-color: brown;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+}
+
+a#link.li-item{
+
+}
+/* Lớp giả */
+#box:hover{
+    background-color: black;
+    color: white ;
+}
+/*Phần tử giả */
+#element::before{
+    content: "before item";
+    color: red;
+}
+#element::after{
+    content: "before item";
+    color: rgb(14, 142, 165);
+    font-weight: 900;
+}
+
+/* ĐỘ ưu tiên */
+
+/* 
+option !important
+1. Inline - 1000
+2. ID - 100
+3. Class - 10
+4. *, tagname - 1 điểm
+*/
+
+
+/*  Đơn vị độ dài */
+/* 
+Đơn vị tuyệt đối :
+    px - điểm ảnh 
+
+Đơn vị tương đối : 
+    % - phần trăm của kích thước của viewport
+    em , rem , vw, vh 
+    phục vụ bài toán resposive
+*/
+body{
+    height: 200vh;
+}
