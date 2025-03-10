@@ -1,0 +1,79 @@
+/* 
+Box model Css : mô hình hộp trong css 
+Gồm các thành phần : Content(Nội dung) -> Padding (đệm) -> Border(Viền)-> Margin(lề)
+Mỗi 1 thành phần đc xác định qua các chỉ số : width , height, top, right, bottom, left
+*/
+
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    25%{
+        transform: translate(300px, 0);
+    }
+    50%{
+        transform: translate(300px, 300px);
+    }
+    75%{
+        transform: translate(0, 300px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    } 
+}
+.box{
+    width:100px;
+    height:100px;
+    background-color: brown;
+    /* padding: 100px; */
+    /* margin: 50px; */
+    /* box-sizing: border-box; */
+    border-radius: 10px;
+    /* position: fixed; */
+  
+    /* top: 0px;
+    left: 500px; */
+    /* transform: scale(0.1); */
+    /* transition-delay: 1s;
+    transition-property: width,height, opacity, transform;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    opacity: 0; */
+    animation: move 4s linear  infinite;
+
+}
+
+/* .parent:hover > .box{
+    width: 100px;
+    height: 400px;
+    opacity: 1;
+    transform: rotate(360deg);
+} */
+
+
+body{
+    height: 300vh;
+}
+/*  Position : căn chỉnh phần tử theo vị trí : 
+Static , relative, absolute , fixed, Sticky(ko đc hỗ trợ ở hầu hết các trinh duyệt mà phụ thuộc vào phiên bản)
+các thuộc tính kết hợp : top, left, right, bottom
+*/
+.parent{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    background-color: aqua;
+}
+.line{
+    border-top: 50px solid rgb(255, 255, 255) ;
+    border-left: 50px solid rgb(255, 255, 255) ;
+    border-right: 50px solid rgb(255, 255, 255) ;
+    border-bottom: 50px solid orange ;
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+}
+
+

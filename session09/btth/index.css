@@ -1,0 +1,141 @@
+
+/* reset */
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+/*  main css  danh cho PC*/
+.header{
+    color: red;
+    height: 56px;
+    padding: 0 48px;
+    display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.header > h1 {
+    font-size: 24px;
+}
+.header > span{
+    display: none;
+}
+.header ul{
+    display: flex;
+    gap: 10px;
+}
+.header ul a{ 
+    color: red;
+    text-decoration: none;
+}
+
+
+.main{
+    color: black;
+    padding: 12px 48px;
+   
+}
+.main_container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+}
+
+.main_container .item{
+    flex-basis: 23.5%;
+    border: 1px solid rgb(133, 130, 130);
+    padding: 10px;
+    box-sizing: border-box;
+    height: 78px;
+    margin-bottom: 10px;
+}
+
+.content{
+    flex-basis: 49% !important;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 48px;
+}
+
+/* main hinh tablet */
+@media only screen and (max-width: 768px) {
+    .post{
+        flex-basis: 49% !important;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .header span{
+        display: block;
+    }
+    .header nav{
+        display: none;
+    }
+    .main_container .item{
+        flex-basis:100% !important;
+        height: auto;
+    }
+    .post{
+       height: 76px!important;
+    }
+    footer{
+        justify-content: center;
+    }
+    footer .copyright{
+        display: none;
+    }
+}
+
+
+
+
+
+
