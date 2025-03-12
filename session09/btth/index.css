@@ -4,6 +4,10 @@
 v2.0 | 20110126
 License: none (public domain)
 */
+:root{
+    --fs-html: 16px;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -92,7 +96,7 @@ align-items: center;
     border: 1px solid rgb(133, 130, 130);
     padding: 10px;
     box-sizing: border-box;
-    height: 78px;
+    height: calc(78rem/16);
     margin-bottom: 10px;
 }
 
@@ -124,7 +128,7 @@ footer{
         height: auto;
     }
     .post{
-       height: 76px!important;
+       height: calc(76rem/ 16) !important;
     }
     footer{
         justify-content: center;
@@ -132,6 +136,13 @@ footer{
     footer .copyright{
         display: none;
     }
+}
+
+p{
+    width: 200px;
+    height: 300px;
+    /*overflow: scroll;*/
+    overflow: scroll;
 }
 
 
