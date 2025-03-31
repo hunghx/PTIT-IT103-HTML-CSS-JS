@@ -79,7 +79,7 @@ function showListStudent(list) {
     //     text += `${i + 1}. ${list[i]}\n`
     // }
     // array method
-    let text = list.reduce((stu, idx)=>text+`${idx + 1}. ${stu}\n`,"");
+    let text = list.reduce((temp,stu, idx)=>temp+`${idx + 1}. ${stu}\n`,"");
     alert(text)
 }
 
@@ -100,6 +100,8 @@ function addStudent(){
 
     alert("Thêm sinh viên thành công")
 }
+// phương thức : khái niệm : OOP
+// Hàm : POP
 
 // cập nhật 
 function updateStudent(){
