@@ -43,7 +43,7 @@ while (true) {
         case 3:
             // Cập nhật
             updateStudent();
-            break;
+            break;``
         case 4:
             // Xóa
             deleteStudent();
