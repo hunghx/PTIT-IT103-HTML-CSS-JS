@@ -74,10 +74,12 @@ function showListStudent(list) {
         alert("Danh sách trống");
         return;
     }
-    let text = "";
-    for (let i = 0; i < list.length; i++) {
-        text += `${i + 1}. ${list[i]}\n`
-    }
+    // let text = "";
+    // for (let i = 0; i < list.length; i++) {
+    //     text += `${i + 1}. ${list[i]}\n`
+    // }
+    // array method
+    let text = list.reduce((stu, idx)=>text+`${idx + 1}. ${stu}\n`,"");
     alert(text)
 }
 
@@ -125,13 +127,14 @@ function deleteStudent(){
     let confirmDelete =confirm("Bạn có chắc chắn muốn xóa sinh viên "+studentNameArray[index-1]);
     if(confirmDelete){
         // lọc các sinh viên ko bị xóa
-        let afterDeleted = [];
-        for(let i = 0; i < studentNameArray.length; i++){
-            if(i!= index-1){
-                afterDeleted.push(studentNameArray[i])
-            }
-        }
-        studentNameArray = afterDeleted;
+        // let afterDeleted = [];
+        // for(let i = 0; i < studentNameArray.length; i++){
+        //     if(i!= index-1){
+        //         afterDeleted.push(studentNameArray[i])
+        //     }
+        // }
+        // studentNameArray = afterDeleted;
+        studentNameArray = studentNameArray.filter((_,idx)=> idx != index-1);
         alert("Xóa sinh viên thành công");
     }
 }
@@ -140,12 +143,15 @@ function deleteStudent(){
 // tìm kiếm tương đối  
 function searchStudent(){
     let searchName = prompt("Nhập từ khóa tìm kiếm")
-    let arraySearch = [];
-    for(let i =0; i< studentNameArray.length; i++){
-        if(studentNameArray[i].toLowerCase().includes(searchName.toLowerCase())){
-            arraySearch.push(studentNameArray[i]);
-        }
-    }
+    // let arraySearch = [];
+    // for(let i =0; i< studentNameArray.length; i++){
+    //     if(studentNameArray[i].toLowerCase().includes(searchName.toLowerCase())){
+    //         arraySearch.push(studentNameArray[i]);
+    //     }
+    // }
+
+    // filter
+    let arraySearch= studentNameArray.filter(stu=> stu.toLowerCase().includes(searchName.toLowerCase()));
     showListStudent(arraySearch);
 }
 
@@ -168,7 +174,6 @@ function sortStudent(){
         //         }
         //     }
         // }
-
         studentNameArray.sort((a,b)=>{
             if(a>b) return 1;
             if(a<b) return -1;
