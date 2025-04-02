@@ -46,14 +46,20 @@ console.log(student.age);
 
 // thêm thuộc tính 
 student.phone = "09387824635";
+// student = {...student, phone: "09387824635"};
+
 console.log(student);
 student.sleeping = ()=>{
     console.log("đang ngu");
 }
 
-console.log(student);
 
+console.log(student);
 student.sleeping();
+// DOM trong JS là một đối tượng
+
+
+
 
 
 
