@@ -1,0 +1,123 @@
+// CHức năng của products admin
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+// local storage
+// localStorage.setItem("products", JSON.stringify(products)); // thêm 1 khóa và giá trị vào local trình duyêht
+// localStorage.getItem("products");
+const USDollar = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
+// làm tính năng 
+
+const displayListProduct = () => {
+    // lặp qua lần lượt từng sp va nối thành 1 chuối
+    // let html = "";
+    // products.forEach((pro,index)=>{
+    //     html+=`  <tr>
+    //                     <th scope="row">${index+1}</th>
+    //                     <td>${pro.id}</td>
+    //                     <td>${pro.name}</td>
+    //                     <td> <img src="${pro.imgUrl}" alt="${pro.name}" width="200" height="100" style="object-fit: cover;"></td>
+    //                     <td>${pro.description}</td>
+    //                     <td>${USDollar.format(pro.price)}</td>
+    //                     <td>${pro.stock}</td>
+    //                     <td>${pro.status?"Đang bán":"Ngừng bán"}</td>
+    //                     <td><button class="btn btn-warning"><i class="fa-solid fa-comment-pen"></i></button></td>
+    //                     <td><button class="btn btn-danger"><i class="fa-solid fa-trash-xmark"></i></button></td>
+    //                   </tr>`;
+    // })
+    let html = products.reduce((temp, pro, index) => temp + `<tr>
+                <th scope="row">${index + 1}</th>
+                <td>${pro.id}</td>
+                <td>${pro.name}</td>
+                <td> <img src="${pro.imgUrl}" alt="${pro.name}" width="200" height="100" style="object-fit: cover;"></td>
+                <td>${pro.description}</td>
+                <td>${USDollar.format(pro.price)}</td>
+                <td>${pro.stock}</td>
+                <td>${pro.status ? "Đang bán" : "Ngừng bán"}</td>
+                <td><button class="btn btn-warning"><i class="fa-solid fa-comment-pen"></i></button></td>
+                <td><button onclick="deleteProductById('${pro.id}')" class="btn btn-danger"><i class="fa-solid fa-trash-xmark"></i></button></td>
+            </tr>`
+        , "")
+
+
+    // sử dụng innerHTML để hiển thị ra dom
+    let tbody = document.getElementById("tbody");
+    if (tbody) {
+        tbody.innerHTML = html;
+    }
+}
+// gọi và thực thi hàm
+displayListProduct();
+
+
+
+const deleteProductById = (id) => {
+    // confirm
+    if (!confirm('Bạn có chắc chắn muốn xóa không')) {
+        return;
+    }
+    // lọc các sản phẩm ko bị xóa và gán vào mảng ban đầu
+    products = products.filter(pro => pro.id != id);
+
+    // lưu vào storage :
+    localStorage.setItem("products", JSON.stringify(products));
+    // hiển thị lại danh sách sau khi xóa
+    displayListProduct();
+}
+
+
+// Khi thực hiện thêm mới :
+// Lấy toàn bộ dữ liệu cảu ô input 
+// Kiểm tra xác thực dữ liệu 
+// nếu hợp lệ thì thêm mới vào mảng
+// nếu ko hợp lệ thì in ra lỗi
+
+
+const handleAddProduct = () => {
+    let product = validateInputProduct();
+    if (product) {
+        // thành công nhưng sẽ load lại trang và tải lại dữu liêu : Browser Storage
+        products.push(product);
+        // displayListProduct();
+        // let myModal = document.getElementById('modal-add');
+        // let modal = bootstrap.Modal.getInstance(myModal)
+        // modal.hide();
+
+        // lưu vào storage :
+        localStorage.setItem("products", JSON.stringify(products));
+
+        location.href = "/admin/product/list-product.html";
+
+    }
+
+}
+
+const validateInputProduct = () => {
+    // id ko đc để trống
+    // id phải bắt đầu bằng chữ P và có 4 kí tự số
+    // id ko đc trừng lặp
+    let regex_id = /P[0-9]{4}/g; let id = document.getElementById("id").value;
+    let name = document.getElementById("name").value;
+    let imgUrl = document.getElementById("imgUrl").value;
+    let description = document.getElementById("description").value;
+    let price = document.getElementById("price").value;
+    let stock = document.getElementById("stock").value;
+    let flag = false;
+    if (id.trim() == "") {
+        document.getElementById("error_id").innerText = "Không được để trống";
+    } else if (!regex_id.test(id)) {
+        document.getElementById("error_id").innerText = "Không đúng định dạng , phải bắt đàu bằng chữ P và có 4 kí tự số";
+    } else if (products.some(p => p.id === id)) {
+        document.getElementById("error_id").innerText = "ID đã tồn tại, vui lòng nhập id khác";
+    } else {
+        document.getElementById("error_id").innerText = "";
+        flag = true;
+    }
+
+    return flag ? { id, name, description, price, imgUrl, stock } : null;
+}
+const showFormAdd=()=>{
+    document.getElementById("modal-add").style.display = "block";
+}
