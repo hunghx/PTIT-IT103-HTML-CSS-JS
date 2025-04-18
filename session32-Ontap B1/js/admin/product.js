@@ -12,12 +12,13 @@ const USDollar = new Intl.NumberFormat('en-US', {
 let countProductPerPage = 1;
 let currentPage = 1;
 
-let totalPages = Math.ceil(products.length / countProductPerPage);
+let totalPages ;
 
-const paginationProduct = (page) => {
+const paginationProduct = (array,page) => {
+    totalPages = Math.ceil(array.length / countProductPerPage);
     let startIndex = page * countProductPerPage;
     let endIndex = startIndex + countProductPerPage;
-    return products.slice(startIndex, endIndex);
+    return array.slice(startIndex, endIndex);
 }
 
 
@@ -88,7 +89,7 @@ const displayListProduct = (array) => {
     document.getElementById("list-pagination").innerHTML = pageHTML;
 }
 // gọi và thực thi hàm
-displayListProduct(paginationProduct(currentPage));
+displayListProduct(paginationProduct(products,currentPage));
 
 // Tạo hàm di chuyển trang khi onl\click
 const goToPage=(page)=>{
